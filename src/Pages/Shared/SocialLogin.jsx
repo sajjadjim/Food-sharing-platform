@@ -14,7 +14,7 @@ const SocialLogin = () => {
       const result = await signInWithGoogle();
       const user = result.user;
       const idToken = await getIdToken(user);
-      console.log('Firebase ID token:', idToken);
+      // console.log('Firebase ID token:', idToken);
       localStorage.setItem('accessToken', idToken);
 
       navigate('/');

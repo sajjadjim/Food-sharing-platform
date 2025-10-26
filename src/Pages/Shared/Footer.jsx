@@ -6,7 +6,7 @@ import { SlSocialYoutube } from "react-icons/sl";
 
 const Footer = () => {
     return (
-        <footer className="bg-gradient-to-b from-[#5e7784] to-[#4b626e] text-white py-10 mt-10 shadow-inner backdrop-blur-md">
+        <footer className="bg-gradient-to-b from-[#5e7784] to-[#4b626e] text-white py-10 shadow-inner backdrop-blur-md">
             <div className="container mx-auto flex flex-col items-center justify-center space-y-5">
 
                 {/* Logo */}
