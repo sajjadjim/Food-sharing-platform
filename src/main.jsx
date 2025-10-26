@@ -1,13 +1,13 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import router from './Router/Router.jsx'
 import { RouterProvider } from 'react-router'
 import AuthProvider from './Contexts/AuthContext/AuthProvider.jsx'
 import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import router from './Router/router.jsx'
 
 const queryClient = new QueryClient()
 

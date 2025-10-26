@@ -16,7 +16,8 @@ import AboutUs from "../Pages/AboutUs/AboutUs";
 import Error from "../Pages/Error/Error";
 
 
-const router = createBrowserRouter([
+
+ const router = createBrowserRouter([
   {
     path: "/",
     Component:RootLayout,
