@@ -36,7 +36,7 @@ const router = createBrowserRouter([
         {
           path:'/foods/:id',
           Component:FoodDetails,
-          loader:({params})=>fetch(`https://food-sharing-platform-server.vercel.app/foods/${params.id}`)
+          loader:({params})=>fetch(`https://food-server-sajjadjim.vercel.app/foods/${params.id}`)
         },
         {
           path:'/addFood',

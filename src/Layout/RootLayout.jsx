@@ -5,10 +5,12 @@ import Footer from '../Pages/Shared/Footer';
 
 const RootLayout = () => {
     return (
-        <div>
-            <Navbar></Navbar>
-            <Outlet></Outlet>
-            <Footer></Footer>
+        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+            <Navbar />
+            <main style={{ flex: 1 }}>
+                <Outlet />
+            </main>
+            <Footer />
         </div>
     );
 };

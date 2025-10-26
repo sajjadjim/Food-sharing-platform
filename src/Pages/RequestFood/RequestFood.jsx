@@ -13,7 +13,7 @@ const RequestFood = () => {
     const fetchRequests = async () => {
       try {
         const token = await user.getIdToken();
-        const res = await fetch(`https://food-sharing-platform-server.vercel.app/myRequests?email=${user.email}`
+        const res = await fetch(`https://food-server-sajjadjim.vercel.app/myRequests?email=${user.email}`
             , {
           headers: {
             'Authorization': `Bearer ${token}`

@@ -29,7 +29,7 @@ const FoodDetails = () => {
                 status: 'requested'
             };
 
-            await fetch('https://food-sharing-platform-server.vercel.app/requests', {
+            await fetch('https://food-server-sajjadjim.vercel.app/requests', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ const FoodDetails = () => {
                 body: JSON.stringify(requestData)
             });
 
-            await fetch(`https://food-sharing-platform-server.vercel.app/foods/${food._id}`, {
+            await fetch(`https://food-server-sajjadjim.vercel.app/foods/${food._id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

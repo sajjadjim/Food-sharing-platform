@@ -15,7 +15,7 @@ const ManageFood = () => {
         console.log(user?.email)
         try {
           const token = await user.getIdToken();
-          const res = await fetch(`https://food-sharing-platform-server.vercel.app/myFood?email=${user.email}`,{
+          const res = await fetch(`https://food-server-sajjadjim.vercel.app/myFood?email=${user.email}`,{
             headers: {
               'Authorization': `Bearer ${token}`
             }
@@ -47,7 +47,7 @@ const ManageFood = () => {
     if (result.isConfirmed) {
       try {
         const token = await user.getIdToken();
-        const res = await fetch(`https://food-sharing-platform-server.vercel.app/foods/${id}`, {
+        const res = await fetch(`https://food-server-sajjadjim.vercel.app/foods/${id}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`
@@ -82,7 +82,7 @@ const ManageFood = () => {
 
     try {
       const token = await user.getIdToken();
-      const res = await fetch(`https://food-sharing-platform-server.vercel.app/foods/${selectedFood._id}`, {
+      const res = await fetch(`https://food-server-sajjadjim.vercel.app/foods/${selectedFood._id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
