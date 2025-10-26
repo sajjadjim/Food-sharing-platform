@@ -26,7 +26,7 @@ const reviews = [
 
 const Review = () => {
   return (
-    <div className="py-16 px-6 bg-gradient-to-b from-[#e4ebef] to-white">
+    <div className="py-16 px-6 ">
       <div className="w-11/12 mx-auto text-center">
         <motion.h2
           className="text-4xl font-extrabold text-[#1d4757] mb-4 flex justify-center items-center gap-3"

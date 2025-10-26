@@ -31,8 +31,8 @@ const FeaturedFood = ({ foodPromise }) => {
                 </motion.h2>
 
 
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                    {foods.slice(0, 8).map((food) => (
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
+                    {foods.slice(0, 6).map((food) => (
                         <div
                             key={food._id}
                             className="bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-2xl transition-transform duration-300 transform hover:-translate-y-1 hover:scale-105">
