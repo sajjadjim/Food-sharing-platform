@@ -12,7 +12,7 @@ const ManageFood = () => {
   useEffect(() => {
     const fetchFoods = async () => {
       if (user?.email) {
-        console.log(user?.email)
+        // console.log(user?.email)
         try {
           const token = await user.getIdToken();
           const res = await fetch(`https://food-server-sajjadjim.vercel.app/myFood?email=${user.email}`,{
