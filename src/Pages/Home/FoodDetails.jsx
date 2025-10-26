@@ -14,7 +14,7 @@ const FoodDetails = () => {
 
     const mutation = useMutation({
         mutationFn: async () => {
-           
+
             const requestData = {
                 foodId: food._id,
                 foodName: food.name,
@@ -31,18 +31,13 @@ const FoodDetails = () => {
 
             await fetch('https://food-server-sajjadjim.vercel.app/requests', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(requestData)
             });
 
             await fetch(`https://food-server-sajjadjim.vercel.app/foods/${food._id}`, {
                 method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ status: 'requested' })
             });
         },
@@ -61,18 +56,19 @@ const FoodDetails = () => {
     };
 
     return (
-        <div className='bg-gray-300 min-h-screen py-10'>
-            <div className="max-w-4xl mx-auto bg-white p-6 rounded-2xl">
+        <div className='bg-gray-200 min-h-screen py-10'>
+            <div className="max-w-4xl mx-auto bg-white p-6 rounded-2xl shadow">
 
+                <img src={food.image} alt={food.name}
+                    className="w-full h-64 object-cover rounded-lg mb-4" />
 
-                <img src={food.image} alt={food.name} className="w-full h-64 object-cover rounded-lg mb-4" />
                 <div className='text-center space-y-2'>
                     <h2 className="text-3xl font-bold">{food.name}</h2>
                     <p><strong>Quantity:</strong> {food.quantity}</p>
                     <p><strong>Pickup:</strong> {food.pickupLocation}</p>
                     <p><strong>Expires:</strong> {food.expireDate}</p>
                     <p><strong>Donor:</strong> {food.donorName}</p>
-                    <p><strong>Donor Email:</strong> {food.donorEmail}</p>
+                    <p><strong>Email:</strong> {food.donorEmail}</p>
                     <p className="italic text-gray-600">{food.notes}</p>
                     <button
                         onClick={() => setShowModal(true)}
@@ -83,48 +79,81 @@ const FoodDetails = () => {
                 </div>
             </div>
 
+            {/* MODAL */}
             {showModal && (
-                <div className="fixed inset-0 bg-[#88b4cd] bg-opacity-30 flex justify-center items-center z-50">
-                    <div className="bg-white p-6 rounded-lg max-w-xl w-full shadow-xl relative">
-                        <h2 className="text-xl font-semibold mb-4 text-center">Confirm Request</h2>
+                <div className="fixed inset-0 bg-opacity-30 flex justify-center items-center z-50">
+                    <div className="bg-white p-6 rounded-xl max-w-2xl w-full shadow-2xl">
 
-                        <div className="space-y-3">
-                            <label>Food Name</label>
-                            <input
-                                type="text"
-                                value={food.name || ''}
-                                disabled
-                                className="input input-bordered w-full"
-                            />
-                            <label>Food Image</label>
-                            <input type="text" value={food.image} disabled className="input input-bordered w-full" />
-                            <label>Food ID</label>
-                            <input type="text" value={food._id} disabled className="input input-bordered w-full" />
-                            <label>Food Donator Name </label>
-                            <input type="text" value={food.donorName} disabled className="input input-bordered w-full" />
-                            <label>Food Donator email</label>
-                            <input type="text" value={food.donorEmail} disabled className="input input-bordered w-full" />
-                            <label>User email</label>
-                            <input type="text" value={user?.email} disabled className="input input-bordered w-full" />
-                            <label>Request Date</label>
-                            <input type="datetime-local" value={requestDate} disabled className="input input-bordered w-full" />
-                            <label>Pickup Location</label>
-                            <input type="text" value={food.pickupLocation} disabled className="input input-bordered w-full" />
-                            <label>Expire Date</label>
-                            <input type="text" value={food.expireDate} disabled className="input input-bordered w-full" />
-                            <label>Additional Notes</label>
+                        <h2 className="text-2xl font-bold mb-5 text-center text-gray-800">
+                            Confirm Food Request
+                        </h2>
+
+                        {/* 2-COLUMN FORM */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                            {/* LEFT COLUMN */}
+                            <div className="flex flex-col gap-2">
+                                <label className="font-medium">Food Name</label>
+                                <input disabled value={food.name}
+                                    className="input input-bordered bg-gray-100 w-full" />
+
+                                <label className="font-medium">Food Image</label>
+                                <input disabled value={food.image}
+                                    className="input input-bordered bg-gray-100 w-full" />
+
+                                <label className="font-medium">Food ID</label>
+                                <input disabled value={food._id}
+                                    className="input input-bordered bg-gray-100 w-full" />
+
+                                <label className="font-medium">Donor Email</label>
+                                <input disabled value={food.donorEmail}
+                                    className="input input-bordered bg-gray-100 w-full" />
+                            </div>
+
+                            {/* RIGHT COLUMN */}
+                            <div className="flex flex-col gap-2">
+                                <label className="font-medium">Donor Name</label>
+                                <input disabled value={food.donorName}
+                                    className="input input-bordered bg-gray-100 w-full" />
+
+                                <label className="font-medium">User Email</label>
+                                <input disabled value={user.email}
+                                    className="input input-bordered bg-gray-100 w-full" />
+
+                                <label className="font-medium">Pickup Location</label>
+                                <input disabled value={food.pickupLocation}
+                                    className="input input-bordered bg-gray-100 w-full" />
+
+                                <label className="font-medium">Expire Date</label>
+                                <input disabled value={food.expireDate}
+                                    className="input input-bordered bg-gray-100 w-full" />
+                            </div>
+
+                        </div>
+
+                        {/* FULL ROW NOTES */}
+                        <div className="mt-4">
+                            <label className="font-medium">Additional Notes</label>
                             <textarea
-                                placeholder="Additional Notes"
                                 value={notes}
                                 onChange={(e) => setNotes(e.target.value)}
+                                placeholder="Add extra instructions..."
                                 className="textarea textarea-bordered w-full"
-                            ></textarea>
+                            />
                         </div>
 
-                        <div className="mt-5 flex justify-end gap-3">
-                            <button onClick={handleRequest} className="btn btn-success">Request</button>
-                            <button onClick={() => setShowModal(false)} className="btn btn-outline">Cancel</button>
+                        {/* BUTTONS */}
+                        <div className="mt-6 flex justify-end gap-3">
+                            <button onClick={handleRequest}
+                                className="btn bg-[#7BB661] text-white">
+                                Request
+                            </button>
+                            <button onClick={() => setShowModal(false)}
+                                className="btn btn-outline">
+                                Cancel
+                            </button>
                         </div>
+
                     </div>
                 </div>
             )}
@@ -133,4 +162,3 @@ const FoodDetails = () => {
 };
 
 export default FoodDetails;
-
