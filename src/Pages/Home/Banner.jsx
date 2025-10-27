@@ -1,7 +1,4 @@
 import React from 'react';
-import banner1 from '../../assets/banner-1.jpg';
-import banner2 from '../../assets/banner-2.jpg';
-import banner3 from '../../assets/banner-3.jpg';
 import { motion } from 'framer-motion';
 
 const DancingText = ({ text }) => {
@@ -35,7 +32,7 @@ const Banner = () => {
         {/* Slide 1 */}
         <div id="slide1" className="carousel-item relative w-full">
           <img
-            src={banner1}
+            src='https://images.pexels.com/photos/27400765/pexels-photo-27400765.jpeg'
             alt="Banner 1"
             className="w-full h-full object-cover"
           />
@@ -51,7 +48,7 @@ const Banner = () => {
         {/* Slide 2 */}
         <div id="slide2" className="carousel-item relative w-full">
           <img
-            src={banner2}
+            src="https://images.pexels.com/photos/8131361/pexels-photo-8131361.jpeg"
             alt="Banner 2"
             className="w-full h-full object-cover"
           />
@@ -67,7 +64,7 @@ const Banner = () => {
         {/* Slide 3 */}
         <div id="slide3" className="carousel-item relative w-full">
           <img
-            src={banner3}
+            src="https://images.pexels.com/photos/6271861/pexels-photo-6271861.jpeg"
             alt="Banner 3"
             className="w-full h-full object-cover"
           />
